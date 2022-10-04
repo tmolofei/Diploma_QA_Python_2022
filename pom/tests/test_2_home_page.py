@@ -114,8 +114,8 @@ def test12_the_search_result(web_driver, values):
     home_page.search_button_is_clickable().click()
     result = web_driver.find_elements(By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')
     for filter_items in result:
-        filter_items.text
-    assert values in filter_items.text
+        # filter_items.text
+        assert values in filter_items.text
 
 
 def test13_change_name_transaction(web_driver):
