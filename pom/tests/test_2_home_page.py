@@ -187,7 +187,7 @@ def test20_csv_is_downloaded(web_driver):
     home_page.open()
     home_page.export_csv_button().click()
     sleep(1)
-    with open('/home/tm/Downloads/history.csv', newline='') as file:
+    with open('/home/tm/Downloads/history.csv', encoding="utf-8", newline='') as file:
         reader = csv.reader(file)
         info_from_file = []
         for row in reader:
