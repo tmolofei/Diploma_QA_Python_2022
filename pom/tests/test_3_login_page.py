@@ -27,17 +27,15 @@ def test4_checkbox_remember_me_is_clickable(web_driver):
     assert auth_page.checkbox_remember_me_is_clickable()
 
 
-@pytest.mark.parametrize('email', ['ps_tanushamail.ru', 3456789, 'ps_tanusha@mail.ru'])
-@pytest.mark.parametrize('passwords', [1111111111, '&&&&&&&&&&', 'ps_tanusha'])
 @pytest.mark.parametrize('checkbox', [True, False])
-def test5_login_fields_filling(web_driver, email, passwords, checkbox):
+def test5_login_fields_filling(web_driver, checkbox):
     auth_page = AuthPage(web_driver)
     auth_page.open_login()
     email_field = auth_page.username_field
     email_field.clear()
-    email_field.send_keys(email)
+    email_field.send_keys('ps_tanusha@mail.ru')
     passw_field = auth_page.password_field
-    passw_field.send_keys(passwords)
+    passw_field.send_keys('ps_tanusha')
     checkbox_field = auth_page.checkbox_remember_me
     if checkbox is True:
         checkbox_field.click()
