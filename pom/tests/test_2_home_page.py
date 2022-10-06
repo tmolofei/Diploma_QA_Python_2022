@@ -60,7 +60,6 @@ def test5_added_new_transaction(web_driver):
 def test6_total_amount_after_added_transaction(web_driver):
     home_page = HomePage(web_driver)
     home_page.open()
-    sleep(3)
     amount_sum_after_adding = home_page.total_amount_sum()
     amount_sum_after_adding = float(amount_sum_after_adding.text.replace(",", ""))
     assert amount_sum_after_adding == (AMOUNT_SUM_BEFORE_ADDING - NEW_AMOUNT)
@@ -70,7 +69,6 @@ def test7_delete_button_is_clickable(web_driver):
     home_page = HomePage(web_driver)
     home_page.open()
     home_page.payee_one_checkbox_find().click()
-    sleep(2)
     assert home_page.delete_button_is_clickable()
 
 
@@ -78,7 +76,6 @@ def test8_selected_transaction(web_driver):
     home_page = HomePage(web_driver)
     home_page.open()
     home_page.all_checkbox_find().click()
-    sleep(5)
     elements = web_driver.find_elements(By.XPATH, '//tr[@class="selected"]')
     assert int(len(elements)) == (ELEMENTS_COUNT + 1)
 
@@ -124,7 +121,7 @@ def test13_change_name_transaction(web_driver):
     home_page.change_name_button().click()
     home_page.new_name_field().send_keys(NEW_NAME_OF_TRANSACTION)
     home_page.confirm_name_button().click()
-    sleep(1)
+    sleep(2)
     home_page.found_search_field().send_keys(NEW_NAME_OF_TRANSACTION)
     home_page.search_button_is_clickable().click()
     result = web_driver.find_element(By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')
@@ -185,7 +182,6 @@ def test20_csv_is_downloaded(web_driver):
     home_page = HomePage(web_driver)
     home_page.open()
     home_page.export_csv_button().click()
-    sleep(1)
     with open('/home/tm/Downloads/history.csv', encoding="utf-8", newline='') as file:
         reader = csv.reader(file)
         info_from_file = []
