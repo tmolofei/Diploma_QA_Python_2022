@@ -42,3 +42,6 @@ new_budget_sum = (By.XPATH, '//*[@id="wrapper-envelopes"]/ul/li/ul/li[2]/ul/li[4
 status_confirm_checkbox = (By.XPATH, '//i[@class="icon-status-ck-wh-sm"]')
 changed_status = (By.XPATH, '//i[@class="icon-status-ck-grn-sm"]')
 export_csv_button = (By.ID, 'export-txns')
+selected_elements = (By.XPATH, '//tr[@class="selected"]')
+changed_name_element = (By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')
+filter_transaction_elements = (By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')

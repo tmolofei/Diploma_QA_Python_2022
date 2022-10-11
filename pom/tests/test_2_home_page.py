@@ -11,7 +11,7 @@ current_date = date.today().strftime('%m/%d/%Y')
 NEW_PAYEE = 'Gazprom'
 AMOUNT_SUM_BEFORE_ADDING = 47300.00
 NEW_AMOUNT = 500.00
-ELEMENTS_COUNT = 8
+ELEMENTS_COUNT = 7
 NEW_NAME_OF_TRANSACTION = 'MartinFood'
 NOTES_FOR_TRANSACTION = 'AbrakadabrA'
 
@@ -109,6 +109,7 @@ def test12_the_search_result(web_driver, values):
     home_page.open()
     home_page.found_search_field().send_keys(values)
     home_page.search_button_is_clickable().click()
+    sleep(0.5)
     result = web_driver.find_elements(By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')
     for filter_items in result:
         assert values in filter_items.text
@@ -124,7 +125,7 @@ def test13_change_name_transaction(web_driver):
     sleep(2)
     home_page.found_search_field().send_keys(NEW_NAME_OF_TRANSACTION)
     home_page.search_button_is_clickable().click()
-    result = web_driver.find_element(By.XPATH, '//*[@id="transactions-tbody"]/tr[2]/th[2]')
+    result = home_page.find_changed_name_element()
     assert NEW_NAME_OF_TRANSACTION in result.text
 
 

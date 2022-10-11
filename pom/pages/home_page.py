@@ -140,3 +140,12 @@ class HomePage(BasePage):
 
     def export_csv_button(self):
         return self.find_element(loc.export_csv_button)
+
+    def count_selected_elements(self):
+        return self.find_elements(loc.selected_elements)
+
+    def find_changed_name_element(self):
+        return self.find_element(loc.changed_name_element)
+
+    def find_filter_transaction_elements(self):
+        return self.find_elements(loc.filter_transaction_elements)
