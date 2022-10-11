@@ -149,3 +149,6 @@ class HomePage(BasePage):
 
     def find_filter_transaction_elements(self):
         return self.find_elements(loc.filter_transaction_elements)
+
+    def delete_transaction_button(self):
+        return self.find_element(loc.delete_transaction_button).click()

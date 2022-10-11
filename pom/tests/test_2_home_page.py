@@ -85,7 +85,7 @@ def test9_delete_one_transaction(web_driver):
     home_page.open()
     home_page.payee_one_checkbox_find().click()
     home_page.payee_delete.click()
-    web_driver.find_element(By.ID, 'bulkEditDeleteSave').click()
+    home_page.delete_transaction_button()
     home_page.all_checkbox_find().click()
     elements = web_driver.find_elements(By.XPATH, '//tr[@class="selected"]')
     assert int(len(elements)) == ELEMENTS_COUNT
